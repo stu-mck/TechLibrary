@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TechLibrary.Domain.Aggregagtes;
 using TechLibrary.Domain.Values;
-using TechLibrary.Interfaces;
+
 
 namespace TechLibrary.Domain.Entitites
 {
-    public class Engine : IEntity, IIndexable
-    {
+    public class Engine     {
         public Engine()
         {
             ID = Guid.NewGuid();

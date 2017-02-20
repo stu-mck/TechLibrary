@@ -1,9 +1,9 @@
 ﻿using System;
-using TechLibrary.Interfaces;
+
 
 namespace TechLibrary.Domain.Entitites
 {
-    public class Transmission : IEntity, IIndexable
+    public class Transmission 
     {
         public Transmission()
         {

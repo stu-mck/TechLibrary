@@ -14,5 +14,10 @@ namespace TechLibrary.Controllers
         {
             return new List<ArticleDefinition>();
         }
+
+        public ContentElement Save(ContentElement contentElement)
+        {
+            return contentElement;
+        }
     }
 }

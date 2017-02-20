@@ -1,9 +1,9 @@
 ﻿using System;
-using TechLibrary.Interfaces;
+
 
 namespace TechLibrary.Domain.Entities
 {
-    public class TextContent : IContentElement, IEntity, IIndexable
+    public class TextContent 
     {
         public TextContent(Guid id)
         {

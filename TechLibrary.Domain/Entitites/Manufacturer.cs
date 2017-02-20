@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using TechLibrary.Domain.Entitites;
-using TechLibrary.Interfaces;
+
 
 namespace TechLibrary.Domain.Aggregagtes
 {
-    public  class Manufacturer : IEntity, IIndexable
+    public  class Manufacturer 
     {
 
         public Manufacturer()

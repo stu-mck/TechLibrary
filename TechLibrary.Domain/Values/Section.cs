@@ -8,7 +8,6 @@ namespace TechLibrary.Domain.Values
 
         public Section()
         {
-            Indexes = new List<ContentIndex>();
             Settings = new List<Setting>();
         }
 
@@ -20,8 +19,7 @@ namespace TechLibrary.Domain.Values
 
         public List<ContentElement> ContentElements { get; } = new List<ContentElement>();
 
-        public List<ContentIndex> Indexes { get; set; }
-
+  
 
         public List<Setting> Settings { get; set; }
 

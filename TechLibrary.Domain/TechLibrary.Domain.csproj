@@ -40,19 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aggregates\ArticleDefinition.cs" />
-    <Compile Include="Aggregates\ContentElement.cs" />
-    <Compile Include="Aggregates\ContentIndex.cs" />
+    <Compile Include="Entitites\ArticleDefinition.cs" />
+    <Compile Include="Entitites\ContentElement.cs" />
     <Compile Include="Entitites\Engine.cs" />
-    <Compile Include="Aggregates\Manufacturer.cs" />
+    <Compile Include="Entitites\Manufacturer.cs" />
     <Compile Include="Entitites\ModelFamily.cs" />
     <Compile Include="Entitites\Series.cs" />
     <Compile Include="Entitites\Transmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entitites\TextContent.cs" />
-    <Compile Include="Repositories\ArticleDefinitionRepository.cs" />
-    <Compile Include="Repositories\ContentRepository.cs" />
-    <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Services\HTMLGenerator.cs" />
     <Compile Include="Values\Attribute.cs" />
     <Compile Include="Values\FuelType.cs" />
@@ -60,12 +56,9 @@
     <Compile Include="Values\Setting.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TechLibrary.Lib\TechLibrary.Interfaces.csproj">
-      <Project>{b0e9fa9d-582d-402f-9ad9-fdeeb2355c4f}</Project>
-      <Name>TechLibrary.Interfaces</Name>
-    </ProjectReference>
+    <Folder Include="Aggregates\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

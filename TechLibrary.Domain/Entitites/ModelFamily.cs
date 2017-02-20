@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechLibrary.Domain.Aggregagtes;
-using TechLibrary.Interfaces;
 
 namespace TechLibrary.Domain.Entitites
 {
-    public class ModelFamily : IEntity, IIndexable
+    public class ModelFamily 
     {
         public ModelFamily()
         {

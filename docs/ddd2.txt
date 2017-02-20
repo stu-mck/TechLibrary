@@ -1,11 +1,3 @@
-/* I want to be able to search by make / model / series and see articles that have content related to those vehicle descriptors
-
-I want to change the content of an article (vehicle relationships / engine / transmission / body type etc) and have it discoverable
-
-When I select a series, I want to be able to see all articles related to that series */
-
-
-
 As a content editor, I want to be able to author content so that it can be included in an article
 
 As a content editor, I want my content to be visible to users when they select an article that matches the content search terms
