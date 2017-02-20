@@ -1,0 +1,90 @@
+/* I want to be able to search by make / model / series and see articles that have content related to those vehicle descriptors
+
+I want to change the content of an article (vehicle relationships / engine / transmission / body type etc) and have it discoverable
+
+When I select a series, I want to be able to see all articles related to that series */
+
+
+
+As a content editor, I want to be able to author content so that it can be included in an article
+
+As a content editor, I want my content to be visible to users when they select an article that matches the content search terms
+
+As a content editor I want to be able choose when content becomes available to an aritcle so that it isn't visible to users before the content is published
+
+As a content editor, I want to be able to assign an arbitrary list of search terms to a content element so that the content would appear in all matching articles
+
+As  a content editor, when I mark an article as published, I want to keep a snapshot of the content at that point in time so that I know can see what was in an article at a particular point in time
+
+As a content editor, I want to be able to author content elements so that they can be included in an article
+
+As a content editor I want each of my content elements to contain a particular type of structured data so that the data is entered in a consistent format
+ - Text
+ - Table
+ - DocumentReference
+ - Service Schedule
+ - Grouped Key / Value 
+ - API Lookup
+
+As a content editor, I want to be able to assign zero or more manufacturer references to an article so that when this manufacturer is included in the search terms by a user, the article will be included in the results
+
+As a content editor, I want to be able to assign zero or more Model Family references to an article so that when this Model Family is included in the search terms by a user, the article will be included in the results
+
+As a content editor, I want to be able to assign zero or more Series references to an article so that when this Series is included in the search terms by a user, the article will be included in the results
+
+As a content editor, I want to be able to assign zero or more Engine references to an article so that when this Series is included in the search terms by a user, the article will be included in the results
+
+As a content editor, I want to be able to assign zero or more Body Type references to an article so that when this Series is included in the search terms by a user, the article will be included in the results
+
+As a content editor, I want to be able to assign zero or more Transmission references to an article so that when this Series is included in the search terms by a user, the article will be included in the results
+
+As a system administrator I want to be able to author rules that can be used to validate the content of a content element so that the content can be validated.
+
+As a system administrator I want to be able apply a rule to an individual content element so that the rule can be used to validate the contents of that content element
+
+As a content editor when I save a content element, I want the rules associated with that content element to be evaluated so that I can see a list of validation errors that I need to address
+
+As a system administrator, when a content element fails its validation rules, I do not want that content to be able to be published.
+
+As a system administrator I want to be able to view a list of content elements that have validation failures so that I can review them
+
+As a system administrator if I am viewing a content element with validation errors, I want to be able manually mark that element as validated so that it can be published.
+
+As a content editor, I want to be able to author a content element that refers to a document so when it is included in an article, a link to the document will be available
+
+As a content editor, I want to be able to author a content element that contains formatted text so when it is included in an article, the formatted text will be visible
+
+As a content editor, I want to be able to author a content element that contains a table so when it is included in an article, the contents of the table will be visible
+
+As a content editor, when I am authoring a content element that contains a table I do not want the content element to contain any other data besides the table and it's contents
+
+As a content editor, I want to be able to author a content element that contains a service schedule so when it is included in an article, the contents of the service schedule will be visible
+
+As a content editor, when I am authoring a service schedule, I want to be able to create and edit a list of service schedule intervals so that operations can be associated with the members of the list
+
+As a content editor, when I am authoring a service schedule interval, I want to be able to edit it's interval period so that a user can identify at which period the operations associated with it should be performed
+
+As a content editor, when I am authoring a service schedule, I want to be able to create and edit a list of service schedule groups so that the service schedule operations can be organised
+
+As a content editor, when I am authoring a service schedule group, I want to be able to create and edit a list of group operations so that a user knows what service operations need to be undertaken
+
+As a content editor, when I am authoring a group operation, I want to be able to create and edit a list of service interval operation that are associated with with the operation and a service interval so that a user can see that an operation needs to take place
+
+As a content editor, when I am authoring a service interval operation, I want to be able to select the operation type from a list so that a user knows what is required for that particular operation at that service interval
+
+As a content editor, when I am editing a Table Content Element, I want to be able to edit the number of columns and rows  included in the table so that I can configure the table metrics to match my requirements
+
+As a content element, I want to be able to select an existing Content Element to use as template so that I can use it as a template for creating a new Content Element
+
+
+
+
+
+
+
+
+ 
+
+
+
+
