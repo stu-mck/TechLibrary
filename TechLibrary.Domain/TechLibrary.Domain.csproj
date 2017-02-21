@@ -49,6 +49,7 @@
     <Compile Include="Entitites\Transmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entitites\TextContent.cs" />
+    <Compile Include="Repositories\ContentElementRepository.cs" />
     <Compile Include="Services\HTMLGenerator.cs" />
     <Compile Include="Values\Attribute.cs" />
     <Compile Include="Values\FuelType.cs" />
@@ -57,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Aggregates\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

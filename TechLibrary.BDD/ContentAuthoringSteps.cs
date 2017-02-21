@@ -9,7 +9,8 @@ namespace TechLibrary.BDD
     [Binding]
     public class ContentAuthoringSteps
     {
-        private string _contentElement = "contentElement";
+        private readonly string _contentElement = "contentElement";
+        private readonly string _content = "some content";
 
         [Given(@"I have created a new ContentElement")]
         public void GivenIHaveCreatedANewContentElement()
@@ -21,7 +22,7 @@ namespace TechLibrary.BDD
         public void GivenIHaveEnteredContentIntoTheContentElement()
         {
             var c = (ContentElement)ScenarioContext.Current[_contentElement];
-            c.Content = "some content";
+            c.Content = _content;
         }
         
         [When(@"I press save")]
@@ -40,7 +41,7 @@ namespace TechLibrary.BDD
             var result = (ContentElement)ScenarioContext.Current["result"];
 
             Assert.IsNotNull(result);
-            Assert.AreEqual("some content", result.Content);
+            Assert.AreEqual(_content, result.Content);
         }
     }
 }

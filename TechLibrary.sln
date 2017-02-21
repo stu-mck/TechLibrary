@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary", "TechLibrary\TechLibrary.csproj", "{E65C3A35-CB94-42CA-B833-7AA0F6AA70B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.Tests", "TechLibrary.Tests\TechLibrary.Tests.csproj", "{F4366483-B385-4376-8689-F79F9D9BC769}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.UnitTests", "TechLibrary.Tests\TechLibrary.UnitTests.csproj", "{F4366483-B385-4376-8689-F79F9D9BC769}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.BDD", "TechLibrary.BDD\TechLibrary.BDD.csproj", "{17E30C75-8EB5-4EAE-BFF6-2C6479D0E3BD}"
 EndProject
