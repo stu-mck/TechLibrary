@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TechLibrary.Domain\TechLibrary.Domain.csproj">
-      <Project>{73CF1A4A-5187-415D-99A8-4203471E8CF3}</Project>
+      <Project>{73cf1a4a-5187-415d-99a8-4203471e8cf3}</Project>
       <Name>TechLibrary.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\TechLibrary\TechLibrary.csproj">

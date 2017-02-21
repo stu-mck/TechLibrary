@@ -1,8 +1,10 @@
 ﻿using System;
+using TechLibrary.Domain.Interfaces;
 
-namespace TechLibrary.Domain.Aggregates
+namespace TechLibrary.Domain.Entities
 {
-    public class ContentElement     {
+    public class ContentElement : IEntity
+    {
         public ContentElement()
         {
             

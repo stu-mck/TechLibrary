@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TechLibrary.Domain.Aggregates;
+using TechLibrary.Domain.Entities;
 
 namespace TechLibrary.Domain.Values
 { 

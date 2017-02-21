@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TechLibrary.Controllers;
-using TechLibrary.Domain.Aggregates;
+using TechLibrary.Domain.Entities;
+using TechLibrary.Domain.Repositories;
 using TechTalk.SpecFlow;
 
 namespace TechLibrary.BDD
@@ -10,6 +11,7 @@ namespace TechLibrary.BDD
     public class ContentAuthoringSteps
     {
         private readonly string _contentElement = "contentElement";
+        private readonly string _savedElement = "savedElement";
         private readonly string _content = "some content";
 
         [Given(@"I have created a new ContentElement")]
@@ -28,11 +30,8 @@ namespace TechLibrary.BDD
         [When(@"I press save")]
         public void WhenIPressSave()
         {
-            var controller = new ArticleController();
-            var result = controller.Save((ContentElement)ScenarioContext.Current[_contentElement]);
+            var result = SaveContentElement((ContentElement)ScenarioContext.Current[_contentElement]);
             ScenarioContext.Current.Add("result", result);
-
-
         }
         
         [Then(@"the ContentElement should be saved")]
@@ -43,5 +42,47 @@ namespace TechLibrary.BDD
             Assert.IsNotNull(result);
             Assert.AreEqual(_content, result.Content);
         }
+
+        [Given(@"I press save")]
+        public void GivenIPressSave()
+        {
+            var result = SaveContentElement((ContentElement)ScenarioContext.Current[_contentElement]);
+            ScenarioContext.Current.Add("result", result);
+        }
+
+
+        [When(@"I enter the entityId of the saved ContentElement")]
+        public void WhenIEnterTheEntityIdOfTheSavedContentElement()
+        {
+            var controller = GetController();
+            var savedItem = (ContentElement)ScenarioContext.Current[_contentElement];
+            ScenarioContext.Current.Add(_savedElement, controller.ContentElement(savedItem.EntityId));
+        }
+
+        [Then(@"the ContentElement should be returned")]
+        public void ThenTheContentElementShouldBeReturned()
+        {
+            var originalItem = (ContentElement)ScenarioContext.Current[_contentElement];
+            var savedItem = (ContentElement)ScenarioContext.Current[_savedElement];
+
+            Assert.AreEqual(originalItem.Content, savedItem.Content);
+        }
+
+        private ContentElement SaveContentElement(ContentElement contentElement)
+        {
+            var controller = GetController();
+            return controller.Save(contentElement);
+            
+        }
+
+        private ArticleController GetController()
+        {
+            if (!ScenarioContext.Current.ContainsKey("controller"))
+            {
+                ScenarioContext.Current.Add("controller", new ArticleController(new GenericRepository<ContentElement>()));
+            }
+            return (ArticleController)ScenarioContext.Current["controller"];
+        }
+
     }
 }

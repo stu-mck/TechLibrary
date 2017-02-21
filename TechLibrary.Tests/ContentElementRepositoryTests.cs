@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechLibrary.Domain.Repositories;
-using TechLibrary.Domain.Aggregates;
+using TechLibrary.Domain.Entities;
 
 namespace TechLibrary.Tests
 {
@@ -14,7 +14,7 @@ namespace TechLibrary.Tests
         {
             var contentElement = new ContentElement();
 
-            var sut = new ContentElementRepository();
+            var sut = new GenericRepository<ContentElement>();
 
             var result = sut.Save(contentElement);
 
@@ -26,7 +26,7 @@ namespace TechLibrary.Tests
         {
             var contentElement = new ContentElement();
 
-            var sut = new ContentElementRepository();
+            var sut = new GenericRepository<ContentElement>();
 
             var result = sut.Save(contentElement);
 
@@ -41,7 +41,7 @@ namespace TechLibrary.Tests
                 Content = _content
             };
 
-            var sut = new ContentElementRepository();
+            var sut = new GenericRepository<ContentElement>();
 
             var saveResult = sut.Save(contentElement);
 
