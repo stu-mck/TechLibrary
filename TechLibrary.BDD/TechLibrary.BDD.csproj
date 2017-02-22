@@ -105,6 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleAuthoring.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleAuthoring.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleAuthoringBase.cs" />
+    <Compile Include="ArticleAuthoringSteps.cs" />
+    <Compile Include="ArticleRetrievingSteps.cs" />
     <Compile Include="ContentAuthoring.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ArticleAuthoring.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ArticleAuthoring.feature.cs</LastGenOutput>
+    </None>
     <None Include="ContentAuthoring.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ContentAuthoring.feature.cs</LastGenOutput>

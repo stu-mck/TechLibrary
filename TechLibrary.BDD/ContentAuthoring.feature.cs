@@ -64,11 +64,11 @@ namespace TechLibrary.BDD
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Save Content", new string[] {
-                "mytag"}, SourceLine=6)]
+                "saving"}, SourceLine=6)]
         public virtual void SaveContent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save Content", new string[] {
-                        "mytag"});
+                        "saving"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -83,21 +83,23 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Retrieve Content", SourceLine=12)]
+        [TechTalk.SpecRun.ScenarioAttribute("Retrieve Content", new string[] {
+                "finding"}, SourceLine=13)]
         public virtual void RetrieveContent()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve Content", ((string[])(null)));
-#line 13
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Retrieve Content", new string[] {
+                        "finding"});
 #line 14
- testRunner.Given("I have created a new ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 15
- testRunner.And("I have entered content into the ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I have created a new ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.And("I press save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have entered content into the ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.When("I enter the entityId of the saved ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I press save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
+ testRunner.When("I enter the entityId of the saved ContentElement", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
  testRunner.Then("the ContentElement should be returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
