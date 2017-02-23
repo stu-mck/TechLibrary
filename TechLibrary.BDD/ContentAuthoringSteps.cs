@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace TechLibrary.BDD
 {
     [Binding]
-    public class ContentAuthoringSteps
+    public class ContentAuthoringSteps : ArticleAuthoringBase
     {
         private readonly string _contentElement = "contentElement";
         private readonly string _savedElement = "savedElement";
@@ -70,18 +70,7 @@ namespace TechLibrary.BDD
 
         private ContentElement SaveContentElement(ContentElement contentElement)
         {
-            var controller = GetController();
-            return controller.Save(contentElement);
-            
-        }
-
-        private ArticleController GetController()
-        {
-            if (!ScenarioContext.Current.ContainsKey("controller"))
-            {
-                ScenarioContext.Current.Add("controller", new ArticleController(new GenericRepository<ContentElement>()));
-            }
-            return (ArticleController)ScenarioContext.Current["controller"];
+            return GetController().Save(contentElement);
         }
 
     }

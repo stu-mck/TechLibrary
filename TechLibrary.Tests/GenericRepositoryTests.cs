@@ -6,7 +6,7 @@ using TechLibrary.Domain.Entities;
 namespace TechLibrary.Tests
 {
     [TestClass]
-    public class ContentElementRepositoryTests
+    public class GenericRepositoryTests
     {
         private readonly string _content = "some content";
         [TestMethod]

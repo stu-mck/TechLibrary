@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechLibrary.Controllers;
 using TechLibrary.Domain.Aggregates;
 using TechLibrary.Domain.Entities;
@@ -15,12 +11,13 @@ namespace TechLibrary.BDD
     {
         protected const string _articleToSave = "articleToSave";
         protected const string _savedArticle = "savedArticle";
-
+        protected const string _retrievedArticle = "retrievedArticle";
+        protected const string _savedArticleId = "savedArticleId";
+        
 
         protected ArticleDefinition SaveArticleDefinition(ArticleDefinition articleDefinition)
         {
-            var controller = GetController();
-            return controller.SaveArticle(articleDefinition);
+            return GetController().SaveArticle(articleDefinition);
 
         }
 
@@ -28,7 +25,7 @@ namespace TechLibrary.BDD
         {
             if (!ScenarioContext.Current.ContainsKey("controller"))
             {
-                ScenarioContext.Current.Add("controller", new ArticleController(new GenericRepository<ContentElement>()));
+                ScenarioContext.Current.Add("controller", new ArticleController(new GenericRepository<ContentElement>(), new GenericRepository<ArticleDefinition>()));
             }
             return (ArticleController)ScenarioContext.Current["controller"];
         }
