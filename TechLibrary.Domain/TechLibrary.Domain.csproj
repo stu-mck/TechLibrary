@@ -53,7 +53,9 @@
     <Compile Include="Entitites\TextContent.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Services\HTMLGenerator.cs" />
+    <Compile Include="Values\ArticleIndex.cs" />
     <Compile Include="Values\Attribute.cs" />
+    <Compile Include="Values\Enums.cs" />
     <Compile Include="Values\FuelType.cs" />
     <Compile Include="Values\Section.cs" />
     <Compile Include="Values\Setting.cs" />

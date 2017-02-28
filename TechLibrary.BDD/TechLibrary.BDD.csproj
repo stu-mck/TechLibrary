@@ -112,6 +112,12 @@
     </Compile>
     <Compile Include="ArticleAuthoringBase.cs" />
     <Compile Include="ArticleAuthoringSteps.cs" />
+    <Compile Include="ArticleIndexing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArticleIndexing.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleIndexingSteps.cs" />
     <Compile Include="ArticleRetrievingSteps.cs" />
     <Compile Include="ContentAuthoring.feature.cs">
       <AutoGen>True</AutoGen>
@@ -132,6 +138,10 @@
     <None Include="ArticleAuthoring.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArticleAuthoring.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ArticleIndexing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ArticleIndexing.feature.cs</LastGenOutput>
     </None>
     <None Include="ContentAuthoring.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

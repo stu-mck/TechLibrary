@@ -14,7 +14,18 @@ namespace TechLibrary.Domain.Aggregates
             
         }
 
+        public void AddIndex(ArticleIndex index)
+        {
+            Indexes.Add(index);
+        }
+
+
+
         public Guid EntityId { get; set; }
+
+        private readonly List<ArticleIndex> _indexes = new List<ArticleIndex>();
+
+        public List<ArticleIndex> Indexes => _indexes;
         
     }
 }
