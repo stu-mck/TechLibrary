@@ -5,8 +5,7 @@
 
 @mytag
 Scenario: Find articles about Ford Falcon XBs
-	Given I have entered "Ford" into the Manufacturer field
-	And I have entered "Falcon" into the ModelFamily field
-	And I have entered "XB" into the Series field
-	When I press search
-	Then the result should be a list of Articles displayed on the screen
+	Given I have created an ArticleDefinition with an index for a Manufacturer
+	And I have added an ArticleIndex for XB
+	When I search by the 2 indexes
+	Then the ArticleDefinition should be retrieved

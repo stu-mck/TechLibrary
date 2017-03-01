@@ -1,4 +1,12 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TechLibrary.Controllers;
+using TechLibrary.Domain.Aggregates;
+using TechLibrary.Domain.Entities;
+using TechLibrary.Domain.Repositories;
+using TechLibrary.Domain.Values;
 using TechTalk.SpecFlow;
 
 namespace TechLibrary.BDD
@@ -6,28 +14,57 @@ namespace TechLibrary.BDD
     [Binding]
     public class FindingArticlesSteps
     {
-        [Given(@"I have entered ""(.*)"" into the Manufacturer field")]
-        public void GivenIHaveEnteredIntoTheManufacturerField(string p0)
+        private ArticleDefinition _articleDefinition;
+        private IEnumerable<ArticleDefinition> _searchResults;
+        private ArticleIndex _manufacturerIndex;
+        private ArticleIndex _modelIndex;
+        private static ArticleController _articleController;
+
+        [BeforeTestRun]
+        public static void SetUp()
         {
-            ScenarioContext.Current.Pending();
+            _articleController = new ArticleController(new GenericRepository<ContentElement>(), new GenericRepository<ArticleDefinition>());
+        }
+
+        [Given(@"I have created an ArticleDefinition with an index for a Manufacturer")]
+        public void GivenIHaveCreatedAnArticleDefinitionWithAnIndexForAManufacturer()
+        {
+            _articleDefinition = _articleController.SaveArticle(new ArticleDefinition());
+
+
+            _manufacturerIndex = new ArticleIndex(Guid.NewGuid(), IndexType.Manufacturer);
+            _articleDefinition = _articleController.Index(_articleDefinition.EntityId, _manufacturerIndex);
+
+          
+
+
         }
         
-        [Given(@"I have entered ""(.*)"" into the ModelFamily field")]
-        public void GivenIHaveEnteredIntoTheModelFamilyField(string p0)
+        [Given(@"I have added an ArticleIndex for XB")]
+        public void GivenIHaveAddedAnArticleIndexForXB()
         {
-            ScenarioContext.Current.Pending();
+            _modelIndex = new ArticleIndex(Guid.NewGuid(), IndexType.ModelFamily);
+            _articleDefinition = _articleController.Index(_articleDefinition.EntityId, _modelIndex);
         }
         
-        [Given(@"I have entered ""(.*)"" into the Series field")]
-        public void GivenIHaveEnteredIntoTheSeriesField(string p0)
+       
+        
+        [When(@"I search by the (.*) indexes")]
+        public void WhenISearchByTheIndexes(int p0)
         {
-            ScenarioContext.Current.Pending();
+            _searchResults = _articleController.FindArticles(_manufacturerIndex.ReferenceId, _modelIndex.ReferenceId, null);
         }
         
-        [When(@"I press search")]
-        public void WhenIPressSearch()
+        [Then(@"the ArticleDefinition should be retrieved")]
+        public void ThenTheArticleDefinitoinShouldBeRetrieved()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsNotNull(_searchResults);
+            var searchResult = _searchResults.FirstOrDefault();
+
+            Assert.IsNotNull(searchResult);
+            Assert.IsNotNull(searchResult.Indexes.Any(idx => idx.ReferenceId == _manufacturerIndex.ReferenceId));
+            Assert.IsNotNull(searchResult.Indexes.Any(idx => idx.ReferenceId == _modelIndex.ReferenceId));
+
         }
     }
 }

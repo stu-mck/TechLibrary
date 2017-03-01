@@ -25,9 +25,9 @@ namespace TechLibrary.Controllers
             return _articleDefinitionRepository.Load(entityId);
         }
 
-        public IEnumerable<ArticleDefinition> FindArticles(Guid manufacturerId, Guid modelFamilyId, Guid series)
+        public IEnumerable<ArticleDefinition> FindArticles(Guid? manufacturerId, Guid? modelFamilyId, Guid? series)
         {
-            return new List<ArticleDefinition>();
+            return _articleDefinitionRepository.SearchByIndex()
         }
 
         public ContentElement Save(ContentElement contentElement)

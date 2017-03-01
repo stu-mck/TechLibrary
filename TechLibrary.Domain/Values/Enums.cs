@@ -8,6 +8,7 @@ namespace TechLibrary.Domain.Values
 {
     public enum IndexType
     {
-        Manufacturer
+        Manufacturer,
+        ModelFamily
     }
 }
