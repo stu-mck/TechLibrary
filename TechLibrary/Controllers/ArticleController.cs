@@ -27,6 +27,7 @@ namespace TechLibrary.Controllers
 
         public IEnumerable<ArticleDefinition> FindArticles(Guid? manufacturerId, Guid? modelFamilyId, Guid? series)
         {
+
             return _articleDefinitionRepository.SearchByIndex()
         }
 
