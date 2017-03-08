@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entitites\TextContent.cs" />
+    <Compile Include="Repositories\ArticleRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Services\HTMLGenerator.cs" />
     <Compile Include="Values\ArticleIndex.cs" />

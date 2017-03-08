@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Web.Http;
 using TechLibrary.Domain.Aggregates;
 using TechLibrary.Domain.Entities;
@@ -25,10 +27,9 @@ namespace TechLibrary.Controllers
             return _articleDefinitionRepository.Load(entityId);
         }
 
-        public IEnumerable<ArticleDefinition> FindArticles(Guid? manufacturerId, Guid? modelFamilyId, Guid? series)
+        public IEnumerable<ArticleDefinition> FindArticles(List<Guid> indexes)
         {
-
-            return _articleDefinitionRepository.SearchByIndex()
+            return _articleDefinitionRepository.AsQueryable().Where(art => art.Indexes.Select(idx => idx.ReferenceId).Any(id => indexes.Contains(id))).ToList();
         }
 
         public ContentElement Save(ContentElement contentElement)
@@ -60,6 +61,7 @@ namespace TechLibrary.Controllers
             var article =_articleDefinitionRepository.Load(articleDefinitionId);
             article.AddIndex(index);
 
+            _articleDefinitionRepository.Save(article);
             //where should the repository save go?
             return article;
         }

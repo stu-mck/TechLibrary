@@ -20,5 +20,9 @@ namespace TechLibrary.Domain.Repositories
         {
             return _entities.FirstOrDefault(ce => ce.EntityId.Equals(entityId));
         }
+
+        public IQueryable<T> AsQueryable(){
+            return _entities.AsQueryable();
+       }
     }
 }

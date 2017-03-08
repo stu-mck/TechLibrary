@@ -52,7 +52,7 @@ namespace TechLibrary.BDD
         [When(@"I search by the (.*) indexes")]
         public void WhenISearchByTheIndexes(int p0)
         {
-            _searchResults = _articleController.FindArticles(_manufacturerIndex.ReferenceId, _modelIndex.ReferenceId, null);
+            _searchResults = _articleController.FindArticles(new List<Guid> { _manufacturerIndex.ReferenceId, _modelIndex.ReferenceId });
         }
         
         [Then(@"the ArticleDefinition should be retrieved")]

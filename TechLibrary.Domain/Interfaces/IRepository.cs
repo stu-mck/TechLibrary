@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechLibrary.Domain.Aggregates;
 
 namespace TechLibrary.Domain.Interfaces
 {
@@ -10,6 +11,6 @@ namespace TechLibrary.Domain.Interfaces
     {
         T Save(T entity);
         T Load(Guid Id);
-
+        IQueryable<T> AsQueryable();
     }
 }
