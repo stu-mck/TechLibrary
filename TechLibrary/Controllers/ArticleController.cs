@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Web.Http;
 using TechLibrary.Domain.Aggregates;
 using TechLibrary.Domain.Entities;
 using TechLibrary.Domain.Interfaces;
 using TechLibrary.Domain.Values;
+using TechLibrary.Models.Creators;
 
 namespace TechLibrary.Controllers
 {
@@ -43,10 +43,48 @@ namespace TechLibrary.Controllers
             return _contentRepository.Load(entityId);
         }
 
-        [HttpPost]
-        public ArticleDefinition SaveArticle(ArticleDefinition articleDefinition)
+        [HttpGet]
+        public IHttpActionResult Get(Guid id)
         {
-            return _articleDefinitionRepository.Save(articleDefinition);
+            var article = _articleDefinitionRepository.Load(id);
+            if (article == null)
+                return NotFound();
+            return Ok(new ArticleDefinition()
+            {
+                Name = article.Name,
+                Category = article.Category
+            });
+        }
+
+        [HttpPost]
+        public IHttpActionResult Post(ArticleDefinitionCreationRequest articleDefinitionRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var articleDefinition = new ArticleDefinition()
+                    {
+                        Name = articleDefinitionRequest.Name,
+                        Category = articleDefinitionRequest.Category
+                    };
+                    var savedEntity = _articleDefinitionRepository.Save(articleDefinition);
+                    return Ok(new { resource = $"{BuildDomain()}/Article/{savedEntity.EntityId}" });
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError();
+                }
+            }
+            return BadRequest();
+        }
+
+        private string BuildDomain()
+        {
+            var port = Request.RequestUri.Port == 80 ? "" : $":{Request.RequestUri.Port}";
+
+            return $"{Request.RequestUri.Scheme}//{Request.RequestUri.DnsSafeHost}{port}";
+
         }
 
         /// <summary>

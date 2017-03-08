@@ -6,6 +6,7 @@ using TechLibrary.Domain.Aggregates;
 using TechLibrary.Domain.Entities;
 using TechLibrary.Domain.Repositories;
 using TechLibrary.Domain.Values;
+using TechLibrary.Models.Creators;
 using TechTalk.SpecFlow;
 
 namespace TechLibrary.BDD
@@ -26,8 +27,9 @@ namespace TechLibrary.BDD
         [Given(@"I have created an Article Definition")]
         public void GivenIHaveCreatedAnArticleDefinition()
         {
-            _articleDefinition = new ArticleDefinition();
-            _articleDefinition = _articleController.SaveArticle(_articleDefinition);
+            var articleDefinition = new ArticleDefinitionCreationRequest();
+            var result = _articleController.Post(articleDefinition);
+
         }
         
         [Given(@"I have added an Index to the Article Definition")]

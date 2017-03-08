@@ -14,6 +14,10 @@ namespace TechLibrary.Domain.Aggregates
             
         }
 
+        public string Name { get; set; }
+
+        public string Category { get; set; }
+
         public void AddIndex(ArticleIndex index)
         {
             Indexes.Add(index);
