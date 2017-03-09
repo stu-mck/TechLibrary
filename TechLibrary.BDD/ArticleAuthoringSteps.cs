@@ -19,6 +19,7 @@ namespace TechLibrary.BDD
         public void WhenIPressTheSaveArticleButton()
         {
             var result = SaveArticleDefinition(new Models.Creators.ArticleDefinitionCreationRequest());
+            var savedArticle = GetArticleDefinition(result);
             ScenarioContext.Current.Add(_savedArticle, result);
         }
 
