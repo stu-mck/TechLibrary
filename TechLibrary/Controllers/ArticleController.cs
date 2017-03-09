@@ -7,6 +7,7 @@ using TechLibrary.Domain.Entities;
 using TechLibrary.Domain.Interfaces;
 using TechLibrary.Domain.Values;
 using TechLibrary.Models.Creators;
+using TechLibrary.Models.Response;
 
 namespace TechLibrary.Controllers
 {
@@ -49,7 +50,7 @@ namespace TechLibrary.Controllers
             var article = _articleDefinitionRepository.Load(id);
             if (article == null)
                 return NotFound();
-            return Ok(new ArticleDefinition()
+            return Ok(new Models.Views.ArticleDefinition()
             {
                 Name = article.Name,
                 Category = article.Category
@@ -69,7 +70,7 @@ namespace TechLibrary.Controllers
                         Category = articleDefinitionRequest.Category
                     };
                     var savedEntity = _articleDefinitionRepository.Save(articleDefinition);
-                    return Ok(new { resource = $"{BuildDomain()}/Article/{savedEntity.EntityId}" });
+                    return Ok<OkResponse>(new OkResponse() { ResourceLocation = $"{BuildDomain()}/Article/{savedEntity.EntityId}" });
                 }
                 catch (Exception ex)
                 {

@@ -29,7 +29,7 @@ namespace TechLibrary.BDD
         [Given(@"I have created an ArticleDefinition with an index for a Manufacturer")]
         public void GivenIHaveCreatedAnArticleDefinitionWithAnIndexForAManufacturer()
         {
-            _articleDefinition = _articleController.SaveArticle(new ArticleDefinition());
+            var x  = _articleController.Post(new Models.Creators.ArticleDefinitionCreationRequest());
 
 
             _manufacturerIndex = new ArticleIndex(Guid.NewGuid(), IndexType.Manufacturer);

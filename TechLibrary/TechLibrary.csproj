@@ -197,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Creators\ArticleDefinitionCreationRequest.cs" />
+    <Compile Include="Models\Response\OkResponse.cs" />
     <Compile Include="Models\Views\ArticleDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

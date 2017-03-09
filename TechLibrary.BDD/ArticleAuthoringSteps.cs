@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using TechLibrary.Controllers;
 using TechLibrary.Domain.Aggregates;
-using TechLibrary.Domain.Entities;
-using TechLibrary.Domain.Repositories;
 using TechTalk.SpecFlow;
 
 namespace TechLibrary.BDD
@@ -22,7 +18,7 @@ namespace TechLibrary.BDD
         [When(@"I press the save article button")]
         public void WhenIPressTheSaveArticleButton()
         {
-            var result = SaveArticleDefinition((ArticleDefinition)ScenarioContext.Current[_articleToSave]);
+            var result = SaveArticleDefinition(new Models.Creators.ArticleDefinitionCreationRequest());
             ScenarioContext.Current.Add(_savedArticle, result);
         }
 
