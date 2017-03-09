@@ -2,7 +2,6 @@
 using System;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Controllers;
 using System.Web.Http.Hosting;
 using System.Web.Http.Results;
 using TechLibrary.Controllers;
@@ -12,6 +11,7 @@ using TechLibrary.Domain.Repositories;
 using TechLibrary.Models.Creators;
 using TechLibrary.Models.Response;
 using TechTalk.SpecFlow;
+
 
 namespace TechLibrary.BDD
 {
@@ -28,6 +28,11 @@ namespace TechLibrary.BDD
             var result = (OkNegotiatedContentResult<OkResponse>)GetController().Post(articleDefinition);
             return result.Content.ResourceLocation;
 
+        }
+
+        protected ArticleDefinition GetArticleDefinition(string resourceLocation)
+        {
+            return null;
         }
 
         protected ArticleController GetController()
