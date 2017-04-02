@@ -70,7 +70,7 @@ namespace TechLibrary.Controllers
                         Category = articleDefinitionRequest.Category
                     };
                     var savedEntity = _articleDefinitionRepository.Save(articleDefinition);
-                    return Ok<OkResponse>(new OkResponse() { ResourceLocation = $"{BuildDomain()}/Article/{savedEntity.EntityId}" });
+                    return Ok<OkResponse>(new OkResponse() { ResourceLocation = $"{BuildUrl()}/Article/{savedEntity.EntityId}" });
                 }
                 catch (Exception ex)
                 {
@@ -80,7 +80,7 @@ namespace TechLibrary.Controllers
             return BadRequest();
         }
 
-        private string BuildDomain()
+        private string BuildUrl()
         {
             var port = Request.RequestUri.Port == 80 ? "" : $":{Request.RequestUri.Port}";
 

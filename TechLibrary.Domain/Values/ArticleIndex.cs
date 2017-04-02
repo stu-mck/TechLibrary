@@ -13,6 +13,7 @@ namespace TechLibrary.Domain.Values
             ReferenceId = entityId;
         }
 
+        public ArticleIndex Index { get; set; }
         public Guid ReferenceId { get; private set; }
     }
 }

@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entitites\ArticleDefinition.cs" />
+    <Compile Include="DomainEvents\IDomainEvents.cs" />
+    <Compile Include="DomainEvents\IndexAddedEvent.cs" />
+    <Compile Include="Aggregates\ArticleDefinition.cs" />
+    <Compile Include="DomainEvents\PublishFailEvent.cs" />
+    <Compile Include="DomainEvents\PublishSuccessEvent.cs" />
     <Compile Include="Entitites\ContentElement.cs" />
     <Compile Include="Entitites\Engine.cs" />
     <Compile Include="Entitites\Manufacturer.cs" />
     <Compile Include="Entitites\ModelFamily.cs" />
+    <Compile Include="Entitites\PublicationRule.cs" />
     <Compile Include="Entitites\Series.cs" />
     <Compile Include="Entitites\Transmission.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
@@ -57,12 +62,11 @@
     <Compile Include="Values\Attribute.cs" />
     <Compile Include="Values\Enums.cs" />
     <Compile Include="Values\FuelType.cs" />
+    <Compile Include="Values\RuleEvaluationResult.cs" />
     <Compile Include="Values\Section.cs" />
     <Compile Include="Values\Setting.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aggregates\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

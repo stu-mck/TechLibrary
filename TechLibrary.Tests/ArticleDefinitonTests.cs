@@ -20,12 +20,16 @@ namespace TechLibrary.Tests
             var indexRef = Guid.NewGuid();
             var index = new ArticleIndex(indexRef, IndexType.Manufacturer);
 
-            ad.AddIndex(index);
+            var indexAddedEvent = ad.AddIndex(index);
 
-            var result = ad.Indexes.First(ir => ir.ReferenceId == indexRef);
-
-            Assert.AreEqual<ArticleIndex>(index, result);
+            Assert.AreEqual(indexRef, indexAddedEvent.ArticleIndex.Index);
             
+        }
+
+        public void SectionAddedToArticleRaisesSectionAddedEvent()
+        {
+            var ad = new ArticleDefinition();
+            var newSection 
         }
     }
 }
