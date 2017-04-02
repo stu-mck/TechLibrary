@@ -30,7 +30,7 @@ namespace TechLibrary.Controllers
 
         public IEnumerable<ArticleDefinition> FindArticles(List<Guid> indexes)
         {
-            return _articleDefinitionRepository.AsQueryable().Where(art => art.Indexes.Select(idx => idx.ReferenceId).Any(id => indexes.Contains(id))).ToList();
+            return _articleDefinitionRepository.AsQueryable().Where(art => art.GetIndexes().Select(idx => idx.ReferenceId).Any(id => indexes.Contains(id))).ToList();
         }
 
         public ContentElement Save(ContentElement contentElement)

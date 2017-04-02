@@ -27,7 +27,7 @@ namespace TechLibrary.Tests
                 guid1
             };
 
-            var result = rep.AsQueryable().Where(art => art.Indexes.Select(idx => idx.ReferenceId).Any(id => query.Contains(id))).ToList();
+            var result = rep.AsQueryable().Where(art => art.GetIndexes().Select(idx => idx.ReferenceId).Any(id => query.Contains(id))).ToList();
 
             Assert.AreEqual(1, result.Count);
 
@@ -45,7 +45,7 @@ namespace TechLibrary.Tests
                 Guid.NewGuid()
             };
 
-            var result = rep.AsQueryable().Where(art => art.Indexes.Select(idx => idx.ReferenceId).Any(id => query.Contains(id))).ToList();
+            var result = rep.AsQueryable().Where(art => art.GetIndexes().Select(idx => idx.ReferenceId).Any(id => query.Contains(id))).ToList();
 
             Assert.AreEqual(0, result.Count);
 
@@ -56,7 +56,7 @@ namespace TechLibrary.Tests
         {
             var articleDefn = new ArticleDefinition();
 
-            testIndexes.ForEach(idx => articleDefn.Indexes.Add(new ArticleIndex(idx, It.IsAny<IndexType>())));
+            testIndexes.ForEach(idx => articleDefn.AddIndex(new ArticleIndex(idx, It.IsAny<IndexType>())));
 
             repository.Save(articleDefn);
         }

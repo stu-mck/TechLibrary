@@ -27,19 +27,56 @@ namespace TechLibrary.Domain.Aggregates
 {
     public class ArticleDefinition : IEntity
     {
-        private readonly List<PublicationRule> _publicationRules;
-        public ArticleDefinition(List<PublicationRule> publicationRules)
+        private readonly List<IPublicationRule> _publicationRules = new List<IPublicationRule>();
+        private readonly List<ArticleIndex> _indexes = new List<ArticleIndex>();
+        private readonly List<Section> _sections = new List<Section>();
+
+        public ArticleDefinition()
         {
-            _publicationRules = publicationRules;
+            
         }
 
         public string Name { get; set; }
 
         public string Category { get; set; }
 
+        public IDomainEvent AddSection(Section newSection)
+        {
+            if (!string.IsNullOrEmpty(newSection.Name))
+            {
+                if (_sections.Any(sect => sect.Order == newSection.Order))
+                    ReorderSections(newSection);
+
+                _sections.Add(newSection);
+                return new SectionAddedEvent(newSection);
+            }
+            return new SectionAddFailedEvent(newSection);
+        }
+
+        private void ReorderSections(Section newSection)
+        {
+            _sections.Where(sect => sect.Order >= newSection.Order).ToList().ForEach(rs => rs.SetOrder(rs.Order + 1));
+        }
+
+        public IDomainEvent AddPublicationRule(IPublicationRule publicationRule)
+        {
+            _publicationRules.Add(publicationRule);
+
+            var ruleResults = EvaluateRules();
+
+            if (ruleResults.All(rr => rr.Success))
+                return new PublicationRuleAddedEvent(this, publicationRule);
+            return new PublicationRuleAddedEvent(this, publicationRule, ruleResults);
+        }
+
+        public List<Section> GetSections()
+        {
+            return _sections;
+        }
+
         public IDomainEvent AddIndex(ArticleIndex index)
         {
-            Indexes.Add(index);
+            _indexes.Add(index);
             return new IndexAddedEvent(index);
         }
 
@@ -56,7 +93,7 @@ namespace TechLibrary.Domain.Aggregates
         {
             var ruleResults = EvaluateRules();
 
-            if (ruleResults.All(rr => rr.Success))
+            if (ruleResults.Any() && ruleResults.All(rr => rr.Success))
             {
                 Published = true;
                 PublishDate = DateTime.Now;
@@ -69,9 +106,9 @@ namespace TechLibrary.Domain.Aggregates
 
         public Guid EntityId { get; set; }
 
-        private readonly List<ArticleIndex> _indexes = new List<ArticleIndex>();
-
-        public List<ArticleIndex> Indexes => _indexes;
+        public List<ArticleIndex> GetIndexes() {
+            return _indexes;
+        } 
 
         public bool Published { get; private set; }
         public DateTime PublishDate { get; private set; }

@@ -44,7 +44,7 @@ namespace TechLibrary.BDD
         [Then(@"the Article Definition should have the Index")]
         public void ThenTheArticleDefinitionShouldHaveTheIndex()
         {
-            Assert.AreEqual(_indexReference, _articleDefinition.Indexes.FirstOrDefault().ReferenceId);
+            Assert.AreEqual(_indexReference, _articleDefinition.GetIndexes().FirstOrDefault().ReferenceId);
         }
     }
 }

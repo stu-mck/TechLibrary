@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace TechLibrary.Domain.Interfaces
 {
-    public interface IEntity
-    {
-        Guid EntityId { get; set;  }
+    public interface IPublicationRule
+    { 
+   
+        string RuleName { get; }
+
+        bool EvaluateRule(IEntity entity);
     }
 }

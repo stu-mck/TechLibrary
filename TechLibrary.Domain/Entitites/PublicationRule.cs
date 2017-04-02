@@ -7,7 +7,7 @@ using TechLibrary.Domain.Interfaces;
 
 namespace TechLibrary.Domain.Entitites
 {
-    public class PublicationRule
+    public class PublicationRule : IPublicationRule
     {
         public Guid RuleId { get; set; }
 

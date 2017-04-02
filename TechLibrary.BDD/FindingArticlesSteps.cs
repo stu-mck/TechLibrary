@@ -62,8 +62,8 @@ namespace TechLibrary.BDD
             var searchResult = _searchResults.FirstOrDefault();
 
             Assert.IsNotNull(searchResult);
-            Assert.IsNotNull(searchResult.Indexes.Any(idx => idx.ReferenceId == _manufacturerIndex.ReferenceId));
-            Assert.IsNotNull(searchResult.Indexes.Any(idx => idx.ReferenceId == _modelIndex.ReferenceId));
+            Assert.IsNotNull(searchResult.GetIndexes().Any(idx => idx.ReferenceId == _manufacturerIndex.ReferenceId));
+            Assert.IsNotNull(searchResult.GetIndexes().Any(idx => idx.ReferenceId == _modelIndex.ReferenceId));
 
         }
     }
