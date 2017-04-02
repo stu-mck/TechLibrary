@@ -84,7 +84,7 @@ namespace TechLibrary.Domain.Aggregates
         {
             var results = new List<RuleEvaluationResult>();
 
-            _publicationRules.ForEach(rule => results.Add(new RuleEvaluationResult(this)));
+            _publicationRules.ForEach(rule => results.Add(rule.EvaluateRule(this)));
 
             return results;
         }

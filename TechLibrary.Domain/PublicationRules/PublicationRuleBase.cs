@@ -13,13 +13,6 @@ namespace TechLibrary.Domain.PublicationRules
 
 
 
-        public string RuleName
-        {
-            get
-            {
-                return _name;
-            }
-        }
-
+        public string RuleName => _name;
     }
 }

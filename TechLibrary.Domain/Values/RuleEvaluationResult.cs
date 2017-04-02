@@ -9,12 +9,9 @@ namespace TechLibrary.Domain.Values
 {
     public class RuleEvaluationResult
     {
-        private ArticleDefinition articleDefinition;
+        
 
-        public RuleEvaluationResult(ArticleDefinition articleDefinition)
-        {
-            this.articleDefinition = articleDefinition;
-        }
+        
 
         public bool Success { get; set; }
 

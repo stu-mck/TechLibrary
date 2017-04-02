@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechLibrary.Domain.Aggregates;
+using TechLibrary.Domain.Values;
 
 namespace TechLibrary.Domain.Interfaces
 {
@@ -11,6 +13,7 @@ namespace TechLibrary.Domain.Interfaces
    
         string RuleName { get; }
 
-        bool EvaluateRule(IEntity entity);
+        RuleEvaluationResult EvaluateRule(ArticleDefinition entity);
+
     }
 }

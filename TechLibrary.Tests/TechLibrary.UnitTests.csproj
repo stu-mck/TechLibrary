@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticleDefinitonTests.cs" />
+    <Compile Include="ArticlePublicationTests.cs" />
     <Compile Include="ArticleRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GenericRepositoryTests.cs" />

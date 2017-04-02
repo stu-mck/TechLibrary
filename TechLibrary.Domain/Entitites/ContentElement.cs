@@ -10,11 +10,20 @@ namespace TechLibrary.Domain.Entities
             
         }
 
+        public ContentType ContentType { get; set; }
 
         public Guid EntityId { get; set; }
         
         
         public string Content { get; set; }
 
+    }
+
+    public enum ContentType
+    {
+        Text,
+        Table,
+        Resource,
+        ExternalLink
     }
 }
