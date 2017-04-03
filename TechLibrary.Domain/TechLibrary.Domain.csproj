@@ -46,7 +46,7 @@
     <Compile Include="DomainEvents\IndexAddedEvent.cs" />
     <Compile Include="Aggregates\ArticleDefinition.cs" />
     <Compile Include="DomainEvents\PublicationRuleAddedEvent.cs" />
-    <Compile Include="DomainEvents\PublishFailEvent.cs" />
+    <Compile Include="DomainEvents\ReviewRequestEvent.cs" />
     <Compile Include="DomainEvents\PublishSuccessEvent.cs" />
     <Compile Include="DomainEvents\SectionAddedEvent.cs" />
     <Compile Include="DomainEvents\SectionAddFailedEvent.cs" />

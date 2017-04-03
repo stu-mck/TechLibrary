@@ -100,7 +100,7 @@ namespace TechLibrary.Domain.Aggregates
                 PublishedVersion = PublishedVersion++;
                 return new PublishSuccessEvent(this);
             }
-            return new PublishFailEvent(this, ruleResults);
+            return new ReviewRequestEvent(this, ruleResults);
         }
 
 

@@ -8,12 +8,12 @@ using TechLibrary.Domain.Values;
 
 namespace TechLibrary.Domain.DomainEvents
 {
-    public class PublishFailEvent : IDomainEvent
+    public class ReviewRequestEvent : IDomainEvent
     {
         private ArticleDefinition articleDefinition;
         private List<RuleEvaluationResult> ruleResults;
 
-        public PublishFailEvent(ArticleDefinition articleDefinition, List<RuleEvaluationResult> ruleResults)
+        public ReviewRequestEvent(ArticleDefinition articleDefinition, List<RuleEvaluationResult> ruleResults)
         {
             this.articleDefinition = articleDefinition;
             this.ruleResults = ruleResults;

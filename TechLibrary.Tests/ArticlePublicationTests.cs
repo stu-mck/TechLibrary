@@ -33,7 +33,7 @@ namespace TechLibrary.Tests
 
             var publishResult = ad.Publish();
 
-            Assert.IsInstanceOfType(publishResult, typeof(PublishFailEvent));
+            Assert.IsInstanceOfType(publishResult, typeof(ReviewRequestEvent));
 
         }
 
@@ -46,7 +46,7 @@ namespace TechLibrary.Tests
 
             var publishResult = ad.Publish();
 
-            Assert.IsInstanceOfType(publishResult, typeof(PublishFailEvent));
+            Assert.IsInstanceOfType(publishResult, typeof(ReviewRequestEvent));
 
         }
         private Section BuildDiagramSection(int order)
